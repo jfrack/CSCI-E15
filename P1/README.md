@@ -1,3 +1,17 @@
-#Project 1 Readme
+# Project 1 - Portfolio
 
-testing 1,2,3
+## Live URL
+<http://>
+
+## Description
+Portfolio and links to projects on GitHub.
+
+## Demo
+Not required for this project.
+
+## Details for teaching team
+
+## Outside code
+* jQuery: http://jquery.com/
+* Bootstrap: http://getbootstrap.com/
+* Bootstrap Theme: http://bootswatch.com/readable/
