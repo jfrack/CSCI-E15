@@ -3,13 +3,11 @@
 */
 
 body {
-    font-family: arial, halvetica, sans-serif;
-    background-color: lightgray;
 }
 
 h1 {
     background-color: white;
-    border: 5px solid black;
+    border: 5px solid darkgray;
     color: black;
     font-size: 250%;
     margin-left: auto;
@@ -27,5 +25,4 @@ h1 {
 	margin-right: auto;
 	height: 350px;
 	width: 350px;
-
 }
