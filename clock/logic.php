@@ -16,7 +16,7 @@ if (between($hour,5,11)) {
 }
 else if (between($hour,11,16)) {
 	$timeDay = 'afternoon';
-	$image = $imagePagth.'php-afternoon.png';
+	$image = $imagePath.'php-afternoon.png';
 }
 else if (between($hour,16,20)) {
 	$timeDay = 'evening';
