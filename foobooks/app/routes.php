@@ -15,3 +15,15 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/books', function() {
+	return 'Here are all the books...';
+});
+
+Route::get('/books/{category}', function($category) {
+	return 'Here are all the books in the ' . $category . ' category.';
+});
+
+Route::get('/practice', function() {
+	echo App::environment();
+});
