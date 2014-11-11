@@ -190,3 +190,39 @@ Route::get('/practice-deleting', function() {
     }
 
 });
+
+Route::get('/signup',
+    array(
+        'before' => 'guest',
+        function() {
+            return View::make('signup');
+        }
+    )
+);
+
+Route::post('/signup',
+    array(
+        'before' => 'csrf',
+        function() {
+
+            $user = new User;
+            $user->email    = Input::get('email');
+            $user->password = Hash::make(Input::get('password'));
+
+            # Try to add the user
+            try {
+                $user->save();
+            }
+            # Fail
+            catch (Exception $e) {
+                return Redirect::to('/signup')->with('flash_message', 'Sign up failed; please try again.')->withInput();
+            }
+
+            # Log the user in
+            Auth::login($user);
+
+            return Redirect::to('/list')->with('flash_message', 'Welcome to Foobooks!');
+
+        }
+    )
+);
