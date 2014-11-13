@@ -3,11 +3,9 @@
 
 {{ Form::open(array('url' => '/signup')) }}
 
-    Email<br>
-    {{ Form::text('email') }}<br><br>
+    <h3>Email: {{ Form::text('email') }}</h2>
 
-    Password:<br>
-    {{ Form::password('password') }}<br><br>
+    <h3>Password: {{ Form::password('password') }}</h3>
 
     {{ Form::submit('Submit') }}
 

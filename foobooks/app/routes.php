@@ -226,3 +226,52 @@ Route::post('/signup',
         }
     )
 );
+
+Route::get('/login',
+    array(
+        'before' => 'guest',
+        function() {
+            return View::make('login');
+        }
+    )
+);
+
+Route::post('/login',
+    array(
+        'before' => 'csrf',
+        function() {
+
+            $credentials = Input::only('email', 'password');
+
+            if (Auth::attempt($credentials, $remember = true)) {
+                return Redirect::intended('/')->with('flash_message', 'Welcome Back!');
+            }
+            else {
+                return Redirect::to('/login')->with('flash_message', 'Log in failed; please try again.');
+            }
+
+            return Redirect::to('login');
+        }
+    )
+);
+
+Route::get('/logout', function() {
+
+    # Log out
+    Auth::logout();
+
+    # Send them to the homepage
+    return Redirect::to('/');
+
+});
+
+Route::get('/list/{format?}',
+    array(
+        'before' => 'auth',
+        function($format = 'html') {
+            # rest of your list code goes here...
+            return 'List Route:';
+        }
+    )
+);
+
