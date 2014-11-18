@@ -228,6 +228,19 @@ Route::post('/signup',
 );
 
 Route::get('/login',
+			array (
+				'before' => 'guest',
+				'uses' => 'UserController@getLogin'
+			)
+);
+
+# single route that will handle every action in a controller
+Route::controller('user', 'UserController');
+
+Route::resource('tag', 'TagController');
+
+/*
+Route::get('/login',
     array(
         'before' => 'guest',
         function() {
@@ -235,6 +248,7 @@ Route::get('/login',
         }
     )
 );
+*/
 
 Route::post('/login',
     array(
