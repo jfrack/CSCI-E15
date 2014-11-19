@@ -5,8 +5,11 @@ class UserController extends BaseController {
 
     public function __construct() {
         # Put anything here that should happen before any of the other actions
-        # all routes submitted via POST to have the csrf before filter
-        $this->beforeFilter('csrf', array('on' => 'post'));
+
+        # Make sure BaseController gets called
+        parent::__construct();
+
+        # Only logged in users should have access to this controller
         #$this->beforeFilter('auth');
     }
 
