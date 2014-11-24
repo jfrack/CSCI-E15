@@ -33,5 +33,30 @@ class UserController extends BaseController {
     # POST: http://localhost/user/login
     public function postLogin() {
 
+        # form validation
+        $rules = array(
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if($validator->fails()) {
+            return Redirect::to('user/login')
+                    ->with('flash_message', 'Login failed; please try again.')
+                    ->withInput()
+                    ->withErrors($validator);
+        }
+
+        return '<h1>from postLogin()</h1>';
+    }
+
+     # GET: http://localhost/user/logout
+    public function getLogout() {
+        # Log out
+        Auth::logout();
+
+        # Send them to the homepage
+        return Redirect::to('user/login');
     }
 }
