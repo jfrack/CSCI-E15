@@ -237,6 +237,7 @@ Route::get('/login',
 # single route that will handle every action in a controller
 Route::controller('user', 'UserController');
 
+# implicit RESTful Routing
 Route::resource('tag', 'TagController');
 
 /*
