@@ -271,6 +271,8 @@ Route::post('/login',
 
 Route::get('/logout', function() {
 
+    #test
+
     # Log out
     Auth::logout();
 
